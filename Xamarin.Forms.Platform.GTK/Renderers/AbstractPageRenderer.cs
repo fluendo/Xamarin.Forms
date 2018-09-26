@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform.GTK.Extensions;
-using Container = Gtk.EventBox;
+using Container = Xamarin.Forms.Platform.GTK.GtkFormsContainer;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
@@ -196,21 +196,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		protected virtual void UpdateBackgroundColor()
 		{
-			Color backgroundColor = Element.BackgroundColor;
-
-			if (backgroundColor.IsDefaultOrTransparent())
-			{
-				Control.SetBackgroundColor(null);
-			}
-			else
-			{
-				Control.SetBackgroundColor(backgroundColor.ToGtkColor());
-			}
+			Control.SetBackgroundColor(Element.BackgroundColor);
 		}
 
 		protected virtual void UpdateBackgroundImage()
 		{
-			VisibleWindow = Page.ShouldDisplayNativeWindow();
 			Control.SetBackgroundImage(Page.BackgroundImage);
 		}
 
@@ -254,6 +244,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				if (hasParentNavigation) break;
 
 				current = parent;
+
 			}
 
 		return hasParentNavigation && NavigationPage.GetHasNavigationBar(parent);
