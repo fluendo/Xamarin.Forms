@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.Forms.Platform.GTK</id>
-    <version>3.2.1</version>
+    <version>3.2.4</version>
     <authors>Microsoft</authors>
     <owners>microsoft xamarin</owners>
     <tags>xamarin forms xamarinforms xamarin.forms gtk gtk-sharp linux</tags>
